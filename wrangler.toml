@@ -1,10 +1,1 @@
 name = "cypress-creek-globex-corp"
-main = "./index.html"
-type = "webpack"
-
-# Replace with your account id and zone if needed
-account_id = "REPLACE_WITH_ACCOUNT_ID"
-compatibility_date = "2025-10-24"
-
-# If you want to publish to a custom domain, configure it in Cloudflare dashboard and
-# set the `route` or use Pages which handles domains differently.
