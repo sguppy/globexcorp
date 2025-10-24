@@ -1,0 +1,10 @@
+{
+  "name": "cypress-creek-globex-corp-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo \"static site - no build step\"",
+    "publish": "wrangler publish --site ./ --name cypress-creek-globex-corp"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,79 @@
+:root{
+  --overlay-bg: rgba(0,0,0,0.45);
+  --accent: #9fe8d3;
+  --text: #ffffff;
+}
+*{box-sizing: border-box;margin:0;padding:0}
+html,body,#root{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+  min-height:100vh;
+}
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.parallax{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.parallax .layer{
+  position:absolute;
+  inset:0;
+  background-image: url('/upsacled2.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  will-change: transform;
+  transition: transform 0.12s linear;
+}
+
+.parallax .layer--back{
+  transform: translate3d(0,0,0) scale(1.06);
+  filter: blur(2px) saturate(0.95) brightness(0.95);
+  z-index: 1;
+}
+
+.parallax .layer--mid{
+  transform: translate3d(0,0,0) scale(1.03);
+  filter: saturate(1.02) contrast(1.02);
+  z-index: 2;
+}
+
+.parallax .layer--front{
+  transform: translate3d(0,0,0) scale(1);
+  filter: none;
+  z-index: 3;
+}
+
+.overlay{
+  background:var(--overlay-bg);
+  padding:2.5rem 3rem;
+  border-radius:12px;
+  text-align:center;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  position:relative;
+  z-index: 10;
+}
+h1{
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  letter-spacing: 0.4px;
+  margin-bottom:0.5rem;
+}
+.domain{
+  color:var(--accent);
+  font-weight:600;
+}
+
+/* small responsive tweaks */
+@media (max-width:520px){
+  .overlay{padding:1.5rem}
+}

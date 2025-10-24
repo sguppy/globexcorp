@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cypress Creek Globex Corperation</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="hero">
+      <div class="parallax">
+        <div class="layer layer--back" data-depth="0.12"></div>
+        <div class="layer layer--mid" data-depth="0.28"></div>
+        <div class="layer layer--front" data-depth="0.48"></div>
+      </div>
+
+      <div class="overlay">
+        <h1>Cypress Creek Globex Corperation</h1>
+        <p class="domain">cypresscreekglobexcorp.com</p>
+      </div>
+    </main>
+
+    <script>
+      // Simple parallax: move layers by mouse position and scroll
+      (function(){
+        const parallax = document.querySelector('.parallax');
+        const layers = Array.from(document.querySelectorAll('.parallax .layer'));
+
+        function onMove(xPct, yPct){
+          layers.forEach(layer => {
+            const depth = parseFloat(layer.dataset.depth) || 0.2;
+            const translateX = (xPct - 0.5) * depth * 60; // px
+            const translateY = (yPct - 0.5) * depth * 40; // px
+            layer.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${1 + depth*0.05})`;
+          });
+        }
+
+        // mouse movement
+        window.addEventListener('mousemove', (ev) => {
+          const xPct = ev.clientX / window.innerWidth;
+          const yPct = ev.clientY / window.innerHeight;
+          onMove(xPct, yPct);
+        });
+
+        // subtle scroll parallax
+        window.addEventListener('scroll', () => {
+          const y = window.scrollY / (document.body.scrollHeight - window.innerHeight || 1);
+          onMove(0.5, y);
+        }, {passive:true});
+
+        // initial position
+        onMove(0.5, 0.5);
+      })();
+    </script>
+  </body>
+</html>
