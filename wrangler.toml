@@ -1,1 +1,4 @@
 name = "cypress-creek-globex-corp"
+
+# Pages: directory of static files to upload. Set to repository root for this simple site.
+pages_build_output_dir = "."
